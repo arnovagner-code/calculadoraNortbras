@@ -12,32 +12,36 @@
         .love-container { background: var(--azul); padding: 30px; border-radius: 30px; border: 3px solid var(--ouro); width: 95%; max-width: 450px; box-shadow: 0 0 30px rgba(255,204,0,0.3); position: relative; }
         
         .couple-photos { display: flex; justify-content: center; align-items: center; gap: 15px; margin-bottom: 20px; }
-        .photo-frame { width: 85px; height: 85px; border-radius: 50%; border: 3px solid var(--ouro); overflow: hidden; background: #000; }
-        .photo-frame img { width: 100%; height: 100%; object-fit: cover; display: block; }
+        .photo-frame { width: 80px; height: 80px; border-radius: 50%; border: 2px solid var(--ouro); overflow: hidden; }
+        .photo-frame img { width: 100%; height: 100%; object-fit: cover; }
         
         .heart-icon { font-size: 25px; color: var(--perigo); animation: beat 0.8s infinite; }
         @keyframes beat { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.3); } }
 
         h1 { color: var(--ouro); font-size: 18px; text-transform: uppercase; margin-bottom: 15px; }
-        input { width: 80%; padding: 12px; border-radius: 10px; border: 2px solid var(--ouro); background: #000; color: var(--ouro); font-size: 20px; text-align: center; font-weight: bold; margin-bottom: 15px; outline: none; }
+        input { width: 80%; padding: 12px; border-radius: 10px; border: 2px solid var(--ouro); background: #000; color: var(--ouro); font-size: 20px; text-align: center; font-weight: bold; margin-bottom: 15px; }
         
         .btn { background: var(--ouro); color: var(--azul); padding: 15px; border: none; border-radius: 10px; font-weight: 900; font-size: 15px; cursor: pointer; text-transform: uppercase; width: 85%; transition: 0.3s; }
         .btn:hover { transform: scale(1.05); background: white; }
 
+        /* Seções */
         #analise-section, #resultado-final, #roleta-section { display: none; }
 
-        .loading-bar { width: 100%; height: 10px; background: #222; border-radius: 5px; margin: 20px 0; overflow: hidden; }
+        /* Barra de Carga */
+        .loading-bar { width: 100%; height: 8px; background: #222; border-radius: 4px; margin: 20px 0; overflow: hidden; }
         .progress { width: 0%; height: 100%; background: var(--ouro); }
 
-        .alerta-voltagem { background: var(--perigo); color: white; padding: 10px; font-weight: bold; border-radius: 5px; animation: flash 0.5s infinite; margin: 15px 0; }
+        /* Alerta Voltagem */
+        .alerta-voltagem { background: var(--perigo); color: white; padding: 10px; font-weight: bold; border-radius: 5px; animation: flash 0.5s infinite; margin: 15px 0; font-size: 14px; }
         @keyframes flash { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
-        .voltagem-valor { font-size: 50px; color: var(--ouro); font-weight: 900; display: block; }
+        .voltagem-valor { font-size: 45px; color: var(--ouro); font-weight: 900; display: block; }
 
-        .wheel-box { position: relative; width: 220px; height: 220px; margin: 25px auto; }
-        .wheel-img { width: 100%; height: 100%; border-radius: 50%; border: 6px solid var(--ouro); transition: transform 4s cubic-bezier(0.15, 0, 0.15, 1); object-fit: cover; }
-        .pointer { position: absolute; top: -15px; left: 50%; transform: translateX(-50%); font-size: 35px; z-index: 10; }
+        /* Roleta Visual */
+        .wheel-box { position: relative; width: 220px; height: 220px; margin: 20px auto; }
+        .wheel-img { width: 100%; height: 100%; border-radius: 50%; border: 5px solid var(--ouro); transition: transform 4s cubic-bezier(0.15, 0, 0.15, 1); }
+        .pointer { position: absolute; top: -10px; left: 50%; transform: translateX(-50%); font-size: 30px; z-index: 10; }
         
-        #premio-texto { font-size: 20px; color: var(--ouro); font-weight: bold; margin-top: 15px; min-height: 60px; line-height: 1.4; }
+        #premio-texto { font-size: 20px; color: var(--ouro); font-weight: bold; margin-top: 15px; min-height: 50px; }
     </style>
 </head>
 <body>
@@ -50,27 +54,27 @@
             <div class="photo-frame"><img src="eu.html"></div>
         </div>
         <h1>SISTEMA DE AFINIDADE NORTBRAS</h1>
-        <label style="display:block; margin-bottom:10px; font-size:14px;">Bruna, qual seu nível de interesse no Vagner?</label>
+        <label style="display:block; margin-bottom:10px; font-size:14px;">Bruna, seu nível de interesse no Vagner:</label>
         <input type="number" id="nivelBruna" placeholder="0 - 100">
         <button class="btn" onclick="iniciarAnalise()">ANALISAR CONEXÃO</button>
     </div>
 
     <div id="analise-section">
-        <h2 id="status-text" style="font-size: 16px; color: var(--ouro);">CONECTANDO COM O VAGNER...</h2>
+        <h2 id="status-text" style="font-size: 14px; color: var(--ouro);">CONECTANDO COM VAGNER...</h2>
         <div class="loading-bar"><div class="progress" id="bar"></div></div>
-        <p id="sub-status" style="font-size:12px;">Buscando nível de interesse na Bruna...</p>
     </div>
 
     <div id="resultado-final">
-        <h1>RESULTADO DA ANÁLISE</h1>
+        <h1>RESULTADO</h1>
         <p style="font-size:14px;">Interesse do Vagner por você:</p>
         <span id="resVagner" class="voltagem-valor">0%</span>
-        <div class="alerta-voltagem"><i class="fas fa-bolt"></i> CUIDADO: ALTA VOLTAGEM <i class="fas fa-bolt"></i></div>
-        <button class="btn" onclick="irParaRoleta()">RESGATAR MEU PRÊMIO</button>
+        <div class="alerta-voltagem"><i class="fas fa-bolt"></i> ALTA VOLTAGEM DETECTADA <i class="fas fa-bolt"></i></div>
+        <button class="btn" onclick="irParaRoleta()">RESGATAR PRÊMIO VITALÍCIO</button>
     </div>
 
     <div id="roleta-section">
-        <h1>ROLETA DE MIMOS ❤️</h1>
+        <h1>ROLETA DE MIMOS</h1>
+        <p style="font-size: 13px;">Como o nível de interesse foi crítico, você tem direito a um prêmio:</p>
         <div class="wheel-box">
             <div class="pointer">👇</div>
             <img src="eu.html" class="wheel-img" id="wheel">
@@ -83,19 +87,16 @@
 <script>
     function iniciarAnalise() {
         const nivel = document.getElementById('nivelBruna').value;
-        if (!nivel || nivel < 0) return alert("Digite um número, Bruna!");
+        if (!nivel) return alert("Digite um número, Bruna!");
 
         document.getElementById('pergunta-section').style.display = 'none';
         document.getElementById('analise-section').style.display = 'block';
 
         let width = 0;
         const bar = document.getElementById('bar');
-        const status = document.getElementById('status-text');
         const interval = setInterval(() => {
             width++;
             bar.style.width = width + '%';
-            if(width == 30) status.innerText = "LENDO BANCO DE DADOS DO CORAÇÃO...";
-            if(width == 70) status.innerText = "SISTEMA EM SOBRECARGA...";
             if (width >= 100) {
                 clearInterval(interval);
                 mostrarResultado(nivel);
@@ -106,10 +107,8 @@
     function mostrarResultado(nivel) {
         document.getElementById('analise-section').style.display = 'none';
         document.getElementById('resultado-final').style.display = 'block';
-        // O seu interesse é sempre 10x o dela, mínimo de 1000%
-        let calculo = parseInt(nivel) * 10;
-        if (calculo < 1000) calculo = 1000;
-        document.getElementById('resVagner').innerText = calculo + "%";
+        // Regra: se ela digitar algo, o seu é sempre 10x maior
+        document.getElementById('resVagner').innerText = (parseInt(nivel) * 10) + "%";
     }
 
     function irParaRoleta() {
@@ -123,27 +122,27 @@
         const texto = document.getElementById('premio-texto');
         
         const premios = [
-            "Uma noite inesquecível com o Vagner! 🍷",
-            "1 Beijo apaixonado agora! 💋",
-            "Uma massagem relaxante completa! 💆‍♀️",
-            "Sequência de 10 beijos! 😘",
-            "Uma Viagem Especial com seu amor! ✈️",
-            "Namorar (Contrato Renovado!) ❤️",
-            "Casar (Sistema Off-Grid Eterno!) 💍",
-            "Vale Presente Surpresa! 🎁"
+            "Uma noite inesquecível com Vagner 🍷",
+            "1 Beijo apaixonado 💋",
+            "Uma massagem relaxante 💆‍♀️",
+            "10 Beijos seguidos 😘",
+            "Uma Viagem Especial ✈️",
+            "Namorar (Com renovação de contrato) ❤️",
+            "Casar (Sistema OFF-GRID eterno) 💍",
+            "Vale Presente Surpresa 🎁"
         ];
         
         const sorteio = premios[Math.floor(Math.random() * premios.length)];
-        const graus = 2000 + Math.floor(Math.random() * 2000);
+        const graus = 1800 + Math.floor(Math.random() * 1800);
         
         wheel.style.transform = `rotate(${graus}deg)`;
         btn.disabled = true;
         btn.style.opacity = "0.5";
-        texto.innerText = "Sorteando seu mimos...";
+        texto.innerText = "Sorteando seu destino...";
 
         setTimeout(() => {
-            texto.innerHTML = "🎉 PARABÉNS, BRUNA!<br>Você ganhou: " + sorteio;
-            wheel.style.boxShadow = "0 0 50px var(--ouro)";
+            texto.innerHTML = "🎉 VOCÊ GANHOU:<br>" + sorteio;
+            wheel.style.boxShadow = "0 0 40px var(--ouro)";
         }, 4000);
     }
 </script>
