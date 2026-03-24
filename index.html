@@ -3,99 +3,129 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SISTEMAS DE ENGENHARIA NORTBRAS</title>
+    <title>NORTBRAS ENGENHARIA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        :root {
-            --azul-marinho: #001a33;
-            --dourado-solar: #ff9900;
-            --branco: #ffffff;
-            --sucesso: #00c853;
-        }
-        body { font-family: 'Segoe UI', sans-serif; background-color: #0a0e12; margin: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; color: var(--branco); padding: 20px; }
-        .container { background: var(--azul-marinho); padding: 40px; border-radius: 25px; width: 100%; max-width: 600px; text-align: center; box-shadow: 0 20px 50px rgba(0,0,0,0.5); border: 2px solid var(--dourado-solar); }
-        .logo { max-width: 180px; margin-bottom: 20px; border-radius: 50%; border: 3px solid var(--dourado-solar); }
-        h1 { font-size: 20px; text-transform: uppercase; letter-spacing: 2px; color: var(--dourado-solar); margin-bottom: 5px; }
-        h2 { font-size: 14px; color: #aaa; margin-bottom: 30px; }
-        .input-group { margin-bottom: 25px; text-align: left; }
-        label { display: block; margin-bottom: 10px; font-size: 16px; color: #fff; font-weight: bold; }
-        input { width: 100%; padding: 18px; border-radius: 12px; border: none; background: rgba(255,255,255,0.1); color: #fff; font-size: 24px; text-align: center; outline: none; box-sizing: border-box; }
-        button { width: 100%; padding: 20px; background: var(--dourado-solar); color: var(--azul-marinho); border: none; border-radius: 12px; font-weight: bold; font-size: 20px; cursor: pointer; text-transform: uppercase; transition: 0.3s; margin-bottom: 15px; }
-        button:hover { background: #ffae00; transform: scale(1.02); }
-        .whatsapp-btn { background: #25d366; color: white; text-decoration: none; display: block; padding: 15px; border-radius: 10px; font-weight: bold; margin-top: 10px; font-size: 18px; }
+        :root { --azul: #001a33; --ouro: #ff9900; --sucesso: #00c853; }
+        body { font-family: 'Segoe UI', sans-serif; background-color: #0a0e12; margin: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; color: #fff; padding: 10px; }
         
-        .result { margin-top: 30px; padding: 25px; background: rgba(0,0,0,0.4); border-radius: 20px; display: none; text-align: left; border-left: 8px solid var(--sucesso); }
-        .val-destaque { font-size: 22px; color: var(--sucesso); font-weight: bold; }
-        .img-kit { max-width: 100%; height: auto; margin-top: 20px; border-radius: 15px; border: 2px solid var(--dourado-solar); }
-        .frase-efeito { font-style: italic; color: var(--dourado-solar); margin-top: 20px; display: block; font-weight: bold; }
+        .container { background: var(--azul); padding: 25px; border-radius: 20px; width: 100%; max-width: 580px; text-align: center; border: 2px solid var(--ouro); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .logo { max-width: 100px; margin-bottom: 10px; border-radius: 50%; border: 2px solid var(--ouro); }
+        h1 { font-size: 18px; color: var(--ouro); margin-bottom: 15px; text-transform: uppercase; }
+        
+        input { width: 100%; padding: 15px; border-radius: 10px; border: 2px solid rgba(255,153,0,0.3); background: rgba(0,0,0,0.2); color: #fff; font-size: 24px; text-align: center; font-weight: bold; margin-bottom: 15px; outline: none; box-sizing: border-box; }
+        
+        .btns-row { display: flex; gap: 10px; margin-bottom: 15px; }
+        .btn-calc { flex: 1; padding: 18px; background: var(--ouro); color: var(--azul); border: none; border-radius: 10px; font-weight: 800; font-size: 16px; cursor: pointer; text-transform: uppercase; }
+        .whatsapp-btn { flex: 1; background: var(--sucesso); color: white; text-decoration: none; display: flex; align-items: center; justify-content: center; padding: 18px; border-radius: 10px; font-weight: 800; font-size: 16px; text-transform: uppercase; }
+        
+        .result { padding: 20px; background: rgba(0,0,0,0.4); border-radius: 15px; display: none; text-align: left; border-left: 6px solid var(--sucesso); }
+        
+        .grid-res { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 15px; margin-bottom: 15px; }
+        .grid-res p { margin: 0; font-size: 16px; display: flex; align-items: center; justify-content: space-between; height: 35px; }
+        
+        .label-with-img { display: flex; align-items: center; gap: 8px; }
+        .mini-icon { height: 24px; width: 24px; object-fit: contain; }
+        .val { color: var(--sucesso); font-weight: bold; font-size: 18px; }
+        
+        .investimento-box { text-align:center; border-top: 1px solid #444; padding-top: 15px; display: flex; align-items: center; justify-content: space-around; }
+        .preco-final { font-size: 32px; font-weight: 800; }
+        .img-kit-final { max-width: 70px; height: auto; }
+        
+        .btn-save { width: 100%; padding: 10px; background: #333; color: #fff; border: none; border-radius: 8px; font-size: 14px; margin-top: 10px; cursor: pointer; display: none; }
+        .frase { font-style: italic; color: var(--ouro); font-size: 14px; font-weight: bold; margin-top: 12px; display: block; text-align: center; }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <img src="logo_nortbras.jng.html.jpg" alt="Logo Nortbras" class="logo">
-    <h1>SISTEMAS DE ENGENHARIA NORTBRAS</h1>
-    <h2>Tecnologia Solar de Alta Performance</h2>
+    <img src="logo_nortbras.jng.html.jpg" alt="Logo" class="logo">
+    <h1>ENGENHARIA NORTBRAS</h1>
 
-    <div class="input-group">
-        <label>Valor da sua conta de energia (R$):</label>
-        <input type="number" id="valorConta" placeholder="0,00" autofocus>
+    <input type="number" id="valorConta" placeholder="VALOR CONTA (R$)" autofocus>
+
+    <div class="btns-row">
+        <button class="btn-calc" onclick="calcular()">DIMENSIONAR</button>
+        <a href="https://wa.me/5593992241962?text=Olá! Acabei de calcular meu sistema e gostaria de um orçamento detalhado com desconto." class="whatsapp-btn">
+            <i class="fab fa-whatsapp"></i>&nbsp;DESCONTO
+        </a>
     </div>
 
-    <button onclick="calcular()">Calcular Engenharia Solar</button>
-    <a href="https://wa.me/5593992241962?text=Vi o orçamento na calculadora e quero SOLICITAR MEU DESCONTO!" class="whatsapp-btn">🎁 SOLICITAR DESCONTO AGORA</a>
-
     <div id="resultado" class="result">
-        <p>⚡ Consumo Estimado: <span id="consumoKwh" class="val-destaque">0</span> kWh/mês</p>
-        <p>☀️ Painéis Necessários: <span id="placas" class="val-destaque">0</span> (585W cada)</p>
-        <p>🔋 Inversor Sugerido: <span id="inversor" class="val-destaque">-</span></p>
-        <p>📉 Geração Mensal Real: <span id="geracaoReal" class="val-destaque">0</span> kWh/mês</p>
-        <hr style="border: 0.5px solid #444;">
-        <p style="font-size: 18px;">💰 Investimento no Kit: <br><span id="precoKit" style="font-size: 28px; color: #fff;">R$ 0,00</span></p>
+        <div class="grid-res">
+            <p>
+                <span class="label-with-img"><i class="fas fa-bolt" style="color:var(--ouro)"></i> Consumo:</span>
+                <span id="consumoKwh" class="val">0</span>
+            </p>
+            <p>
+                <span class="label-with-img"><img src="inversor_jng.html.webp" class="mini-icon"> Inversor:</span>
+                <span id="inversor" class="val">-</span>
+            </p>
+            <p>
+                <span class="label-with-img"><img src="placa_jng.html.jpg" class="mini-icon"> Painéis:</span>
+                <span id="placas" class="val">0</span>
+            </p>
+            <p>
+                <span class="label-with-img"><i class="fas fa-chart-line" style="color:var(--sucesso)"></i> Geração:</span>
+                <span id="geracaoReal" class="val">0</span>
+            </p>
+        </div>
         
-        <img src="kit_solar.png.html.png" class="img-kit">
-        
-        <span class="frase-efeito">"O sol nasce para todos, mas a economia é para quem escolhe a Nortbras!"</span>
-        <p style="text-align:center; font-size: 12px; margin-top: 20px;">Contato: (93) 99224-1962</p>
+        <div class="investimento-box">
+            <div>
+                <span style="font-size: 12px; color: #aaa;">INVESTIMENTO ESTIMADO:</span>
+                <div id="precoKit" class="preco-final">R$ 0,00</div>
+            </div>
+            <img src="kit_solar.png.html.png" class="img-kit-final">
+        </div>
+        <button class="btn-save" id="btnSave" onclick="window.print()">SALVAR EM PDF</button>
+        <span class="frase">"Economia inteligente é com a Nortbras!"</span>
     </div>
 </div>
 
 <script>
     function calcular() {
-        const valorConta = parseFloat(document.getElementById('valorConta').value);
-        if (valorConta > 0) {
-            // 1. Consumo em kWh (Valor / 1.38)
-            const consumoKwh = valorConta / 1.38;
+        const v = parseFloat(document.getElementById('valorConta').value);
+        if (v > 0) {
+            // Cálculo básico de consumo e placas
+            const kwh = v / 1.38;
+            let p = Math.ceil((kwh / 30) / 1.92);
             
-            // 2. Número de placas (Consumo / 30 / 1.92)
-            // Ajustamos para garantir que 1000 reais resulte em pelo menos 14 placas
-            let numPlacas = Math.ceil((consumoKwh / 30) / 1.92);
-            if (valorConta >= 1000 && numPlacas < 14) numPlacas = 14; 
+            // Garantia mínima para faturas a partir de R$ 1.000,00
+            if (v >= 1000 && p < 14) p = 14; 
 
-            // 3. Valor do Kit (Regra de 10 placas)
-            let valorPorPlaca = (numPlacas > 10) ? 1200 : 1350;
-            const precoTotal = numPlacas * valorPorPlaca;
-
-            // 4. Inversor (Potência total / arredondar para o mais próximo de 1000)
-            const potenciaTotal = numPlacas * 585;
-            const inversorSugerido = Math.round(potenciaTotal / 1000) * 1000;
-
-            // 5. Geração Real (Placas * 585 * 4.5 * 30 / 1000) - 18% perda
-            const geracaoBruta = (numPlacas * 585 * 4.5 * 30) / 1000;
-            const geracaoLiquida = geracaoBruta * 0.82; // 18% de perda
-
-            // Exibir resultados
-            document.getElementById('consumoKwh').innerText = consumoKwh.toFixed(1);
-            document.getElementById('placas').innerText = numPlacas + " Unidades";
-            document.getElementById('inversor').innerText = inversorSugerido + "W";
-            document.getElementById('geracaoReal').innerText = geracaoLiquida.toFixed(1);
-            document.getElementById('precoKit').innerText = precoTotal.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+            // TABELA DE PREÇO COMPLETA (FÓRMULA NORTBRAS)
+            let valorPorPlaca;
             
+            if (v > 9000) {
+                valorPorPlaca = 1180; // Faixa para grandes consumidores (+9k)
+            } else if (v > 5600) {
+                valorPorPlaca = 1150; // Faixa promocional para faturas altas (+5.6k)
+            } else if (p > 10) {
+                valorPorPlaca = 1200; // Projetos médios (+10 placas)
+            } else {
+                valorPorPlaca = 1350; // Projetos residenciais padrão
+            }
+
+            const preco = p * valorPorPlaca;
+            const inv = Math.round((p * 585) / 1000) * 1000;
+            const ger = ((p * 585 * 4.5 * 30) / 1000) * 0.82;
+
+            // Preenchimento dos resultados na tela
+            document.getElementById('consumoKwh').innerText = kwh.toFixed(0) + " kWh";
+            document.getElementById('placas').innerText = p + " un";
+            document.getElementById('inversor').innerText = (inv/1000) + " kW";
+            document.getElementById('geracaoReal').innerText = ger.toFixed(0) + " kWh";
+            document.getElementById('precoKit').innerText = preco.toLocaleString('pt-BR', {style:'currency', currency:'BRL'});
+            
+            // Mostrar bloco de resultados
             document.getElementById('resultado').style.display = 'block';
-        } else {
-            alert("Por favor, insira o valor da sua conta.");
+            document.getElementById('btnSave').style.display = 'block';
+            
+            // Rolagem suave para o resultado no celular
+            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
         }
     }
 </script>
-
 </body>
 </html>
