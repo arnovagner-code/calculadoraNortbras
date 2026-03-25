@@ -10,7 +10,7 @@
         * { box-sizing: border-box; }
         body { font-family: 'Segoe UI', sans-serif; background-color: #0a0e12; margin: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; color: #fff; padding: 10px; }
         
-        .container { background: var(--azul); padding: 25px; border-radius: 20px; width: 100%; max-width: 480px; text-align: center; border: 2px solid var(--ouro); box-shadow: 0 10px 30px rgba(0,0,0,0.5); position: relative; }
+        .container { background: var(--azul); padding: 25px; border-radius: 20px; width: 100%; max-width: 480px; text-align: center; border: 2px solid var(--ouro); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
         .logo { max-width: 90px; margin-bottom: 10px; border-radius: 50%; border: 2px solid var(--ouro); }
         h1 { font-size: 16px; color: var(--ouro); margin-bottom: 15px; text-transform: uppercase; letter-spacing: 2px; }
         
@@ -31,19 +31,26 @@
         .preco-final { font-size: 32px; font-weight: 900; color: #fff; }
         .btn-save { width: 100%; padding: 12px; background: #333; color: #fff; border: none; border-radius: 10px; margin-top: 10px; cursor: pointer; }
 
-        /* ESTILO PARA PDF (IMPRESSÃO) */
+        /* AJUSTE PARA FORÇAR RETRATO NO PDF */
         @media print {
-            @page { margin: 0.5cm; }
-            body { background: white !important; color: #000 !important; }
-            .container { border: 1px solid #eee; box-shadow: none; max-width: 100%; width: 100%; background: white !important; padding: 10px; }
-            h1, .val-destaque, .preco-final { color: #000 !important; }
-            .box-perfil { background: #fffcf5 !important; border: 1px solid var(--ouro); border-left-width: 8px; color: black; }
-            .box-sistema { background: #fafffa !important; border: 1px solid var(--sucesso); border-left-width: 8px; color: black; }
-            .item-tecnico { border-bottom: 1px solid #ddd; color: black; }
+            @page { 
+                size: portrait; /* FORÇA O MODO EM PÉ */
+                margin: 1cm; 
+            }
+            body { background: white !important; color: black !important; min-height: auto; padding: 0; }
+            .container { 
+                border: 1px solid #ddd; 
+                box-shadow: none; 
+                max-width: 100% !important; 
+                width: 100%; 
+                background: white !important; 
+                margin: 0 auto;
+            }
             input, .btns-row, .btn-save { display: none !important; }
             .result { display: block !important; }
-            .frase { color: #333 !important; border-top: 1px dashed #ccc; padding-top: 10px; }
-            .logo { filter: brightness(0.8); }
+            .box-perfil, .box-sistema { border: 1px solid #eee; border-left-width: 10px; background: #fafafa !important; color: black; }
+            h1, .val-destaque, .preco-final, .item-tecnico { color: black !important; }
+            .frase { color: #444 !important; font-weight: bold; border-top: 1px solid #eee; padding-top: 10px; }
         }
     </style>
 </head>
@@ -62,27 +69,27 @@
 
     <div id="resultado" class="result">
         <div class="box-perfil">
-            <h3 style="color: var(--ouro); font-size: 11px; margin:0; letter-spacing: 1px;">ANÁLISE DE CONSUMO</h3>
+            <h3 style="color: var(--ouro); font-size: 11px; margin:0;">ANÁLISE DE CONSUMO</h3>
             <div id="consumoKwh" class="val-destaque">0 kWh</div>
             <p style="margin: 5px 0; font-size: 13px; font-weight: 600;">
-                <i class="fas fa-check-circle" style="color:var(--ouro)"></i> Dimensionado sob medida para você.
+                ✓ Dimensionado sob medida para seu valor informado.
             </p>
         </div>
 
         <div class="box-sistema">
-            <h3 style="color: var(--sucesso); font-size: 11px; margin:0; letter-spacing: 1px;">SOLUÇÃO TÉCNICA SUGERIDA</h3>
-            <div class="item-tecnico"><span>Potência Inversor:</span><span id="inversor" style="font-weight:700">0 kW</span></div>
-            <div class="item-tecnico"><span>Nº de Painéis:</span><span id="placas" style="font-weight:700">0 un</span></div>
-            <div class="item-tecnico"><span>Geração Mensal:</span><span id="geracaoReal" style="color:var(--sucesso); font-weight:700">0 kWh</span></div>
+            <h3 style="color: var(--sucesso); font-size: 11px; margin:0;">SOLUÇÃO TÉCNICA SUGERIDA</h3>
+            <div class="item-tecnico"><span>Sugestão de Inversor:</span><span id="inversor" style="font-weight:700">0 kW</span></div>
+            <div class="item-tecnico"><span>Total de Painéis:</span><span id="placas" style="font-weight:700">0 un</span></div>
+            <div class="item-tecnico"><span>Geração Estimada:</span><span id="geracaoReal" style="color:var(--sucesso); font-weight:700">0 kWh</span></div>
         </div>
         
         <div class="investimento-box">
-            <span style="font-size: 11px; color: #888; font-weight: bold;">INVESTIMENTO ESTIMADO:</span>
+            <span style="font-size: 11px; color: #888;">INVESTIMENTO ESTIMADO:</span>
             <div id="precoKit" class="preco-final">R$ 0,00</div>
         </div>
 
-        <button class="btn-save" onclick="window.print()">SALVAR PROPOSTA (PDF)</button>
-        <p class="frase" style="text-align:center; font-style:italic; color:var(--ouro); font-size:12px; margin-top:12px; font-weight: bold; line-height: 1.4;">
+        <button class="btn-save" onclick="window.print()">SALVAR EM PDF (RETRATO)</button>
+        <p class="frase" style="text-align:center; font-style:italic; color:var(--ouro); font-size:12px; margin-top:15px; line-height: 1.4;">
             "Nortbras Engenharia: Tecnologia de ponta e <br>compromisso com sua economia."
         </p>
     </div>
