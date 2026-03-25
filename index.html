@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NORTBRAS ENGENHARIA</title>
+    <title>NORTBRAS ENERGIA</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root { --azul: #001a33; --ouro: #ff9900; --sucesso: #00c853; }
@@ -31,26 +31,15 @@
         .preco-final { font-size: 32px; font-weight: 900; color: #fff; }
         .btn-save { width: 100%; padding: 12px; background: #333; color: #fff; border: none; border-radius: 10px; margin-top: 10px; cursor: pointer; }
 
-        /* AJUSTE PARA FORÇAR RETRATO NO PDF */
         @media print {
-            @page { 
-                size: portrait; /* FORÇA O MODO EM PÉ */
-                margin: 1cm; 
-            }
+            @page { size: portrait; margin: 1cm; }
             body { background: white !important; color: black !important; min-height: auto; padding: 0; }
-            .container { 
-                border: 1px solid #ddd; 
-                box-shadow: none; 
-                max-width: 100% !important; 
-                width: 100%; 
-                background: white !important; 
-                margin: 0 auto;
-            }
+            .container { border: 1px solid #eee; box-shadow: none; max-width: 100% !important; width: 100%; background: white !important; margin: 0 auto; }
             input, .btns-row, .btn-save { display: none !important; }
             .result { display: block !important; }
-            .box-perfil, .box-sistema { border: 1px solid #eee; border-left-width: 10px; background: #fafafa !important; color: black; }
+            .box-perfil, .box-sistema { border: 1px solid #ddd; border-left-width: 12px !important; background: #fafafa !important; color: black; }
             h1, .val-destaque, .preco-final, .item-tecnico { color: black !important; }
-            .frase { color: #444 !important; font-weight: bold; border-top: 1px solid #eee; padding-top: 10px; }
+            .frase { color: #000 !important; font-weight: bold; border-top: 1px solid #eee; padding-top: 15px; font-size: 14px !important; }
         }
     </style>
 </head>
@@ -58,7 +47,7 @@
 
 <div class="container">
     <img src="logo_nortbras.jng.html.jpg" alt="Logo Nortbras" class="logo" onerror="this.style.display='none'">
-    <h1>ENGENHARIA NORTBRAS</h1>
+    <h1>NORTBRAS ENERGIA</h1>
 
     <input type="number" id="valorConta" placeholder="VALOR DA CONTA (R$)" autofocus>
 
@@ -72,15 +61,15 @@
             <h3 style="color: var(--ouro); font-size: 11px; margin:0;">ANÁLISE DE CONSUMO</h3>
             <div id="consumoKwh" class="val-destaque">0 kWh</div>
             <p style="margin: 5px 0; font-size: 13px; font-weight: 600;">
-                ✓ Dimensionado sob medida para seu valor informado.
+                ✓ Sistema dimensionado sob medida para você.
             </p>
         </div>
 
         <div class="box-sistema">
             <h3 style="color: var(--sucesso); font-size: 11px; margin:0;">SOLUÇÃO TÉCNICA SUGERIDA</h3>
-            <div class="item-tecnico"><span>Sugestão de Inversor:</span><span id="inversor" style="font-weight:700">0 kW</span></div>
-            <div class="item-tecnico"><span>Total de Painéis:</span><span id="placas" style="font-weight:700">0 un</span></div>
-            <div class="item-tecnico"><span>Geração Estimada:</span><span id="geracaoReal" style="color:var(--sucesso); font-weight:700">0 kWh</span></div>
+            <div class="item-tecnico"><span>Potência do Inversor:</span><span id="inversor" style="font-weight:700">0 kW</span></div>
+            <div class="item-tecnico"><span>Número de Painéis:</span><span id="placas" style="font-weight:700">0 un</span></div>
+            <div class="item-tecnico"><span>Geração Mensal Estimada:</span><span id="geracaoReal" style="color:var(--sucesso); font-weight:700">0 kWh</span></div>
         </div>
         
         <div class="investimento-box">
@@ -90,7 +79,7 @@
 
         <button class="btn-save" onclick="window.print()">SALVAR EM PDF (RETRATO)</button>
         <p class="frase" style="text-align:center; font-style:italic; color:var(--ouro); font-size:12px; margin-top:15px; line-height: 1.4;">
-            "Nortbras Engenharia: Tecnologia de ponta e <br>compromisso com sua economia."
+            "Nortbras Energia: Tecnologia de ponta e <br>compromisso com sua economia."
         </p>
     </div>
 </div>
