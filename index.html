@@ -3,59 +3,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NORTBRAS ENGENHARIA</title>
+    <title>NORTBRAS ENGENHARIA - CALCULADORA</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root { --azul: #001a33; --ouro: #ff9900; --sucesso: #00c853; }
         body { font-family: 'Segoe UI', sans-serif; background-color: #0a0e12; margin: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; color: #fff; padding: 10px; }
         .container { background: var(--azul); padding: 25px; border-radius: 20px; width: 100%; max-width: 580px; text-align: center; border: 2px solid var(--ouro); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
         .logo { max-width: 100px; margin-bottom: 10px; border-radius: 50%; border: 2px solid var(--ouro); }
-        h1 { font-size: 18px; color: var(--ouro); margin-bottom: 15px; text-transform: uppercase; }
-        input { width: 100%; padding: 15px; border-radius: 10px; border: 2px solid rgba(255,153,0,0.3); background: rgba(0,0,0,0.2); color: #fff; font-size: 24px; text-align: center; font-weight: bold; margin-bottom: 15px; outline: none; box-sizing: border-box; }
-        .btns-row { display: flex; gap: 10px; margin-bottom: 15px; }
-        .btn-calc { flex: 1; padding: 18px; background: var(--ouro); color: var(--azul); border: none; border-radius: 10px; font-weight: 800; font-size: 16px; cursor: pointer; text-transform: uppercase; }
-        .whatsapp-btn { flex: 1; background: var(--sucesso); color: white; text-decoration: none; display: flex; align-items: center; justify-content: center; padding: 18px; border-radius: 10px; font-weight: 800; font-size: 16px; text-transform: uppercase; }
-        .result { padding: 20px; background: rgba(0,0,0,0.4); border-radius: 15px; display: none; text-align: left; border-left: 6px solid var(--sucesso); }
-        .grid-res { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 15px; margin-bottom: 15px; }
-        .grid-res p { margin: 0; font-size: 16px; display: flex; align-items: center; justify-content: space-between; height: 35px; }
-        .val { color: var(--sucesso); font-weight: bold; font-size: 18px; }
-        .investimento-box { text-align:center; border-top: 1px solid #444; padding-top: 15px; display: flex; align-items: center; justify-content: space-around; }
-        .preco-final { font-size: 32px; font-weight: 800; }
-        .btn-save { width: 100%; padding: 10px; background: #333; color: #fff; border: none; border-radius: 8px; font-size: 14px; margin-top: 10px; cursor: pointer; display: none; }
-        .frase { font-style: italic; color: var(--ouro); font-size: 14px; font-weight: bold; margin-top: 12px; display: block; text-align: center; }
+        h1 { font-size: 16px; color: var(--ouro); margin-bottom: 15px; text-transform: uppercase; letter-spacing: 2px; }
+        input { width: 100%; padding: 15px; border-radius: 12px; border: 2px solid rgba(255,153,0,0.3); background: rgba(0,0,0,0.2); color: #fff; font-size: 24px; text-align: center; font-weight: bold; margin-bottom: 15px; outline: none; }
+        .btns-row { display: flex; gap: 10px; margin-bottom: 20px; }
+        .btn-calc { flex: 1; padding: 18px; background: var(--ouro); color: var(--azul); border: none; border-radius: 12px; font-weight: 800; cursor: pointer; text-transform: uppercase; }
+        .whatsapp-btn { flex: 1; background: var(--sucesso); color: white; text-decoration: none; display: flex; align-items: center; justify-content: center; padding: 18px; border-radius: 12px; font-weight: 800; text-transform: uppercase; }
+        
+        .result { display: none; text-align: left; }
+        .box-perfil { background: rgba(255,153,0,0.1); padding: 15px; border-radius: 15px; border-left: 5px solid var(--ouro); margin-bottom: 15px; }
+        .box-sistema { background: rgba(255,255,255,0.05); padding: 15px; border-radius: 15px; border-left: 5px solid var(--sucesso); }
+        
+        h3 { font-size: 12px; text-transform: uppercase; margin: 0 0 10px 0; letter-spacing: 1px; }
+        .val-destaque { font-size: 26px; font-weight: 800; color: var(--ouro); }
+        .item-tecnico { display: flex; justify-content: space-between; margin: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 5px; }
+        
+        .investimento-box { text-align:center; padding: 20px 0; }
+        .preco-final { font-size: 36px; font-weight: 900; color: #fff; }
+        .btn-save { width: 100%; padding: 12px; background: #333; color: #fff; border: none; border-radius: 10px; margin-top: 15px; cursor: pointer; }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <img src="logo_nortbras.jng.html.jpg" alt="Logo" class="logo" onerror="this.style.display='none'">
+    <img src="logo_nortbras.jng.html.jpg" alt="Logo Nortbras" class="logo" onerror="this.style.display='none'">
     <h1>ENGENHARIA NORTBRAS</h1>
 
-    <input type="number" id="valorConta" placeholder="VALOR CONTA (R$)" autofocus>
+    <input type="number" id="valorConta" placeholder="VALOR DA CONTA (R$)" autofocus>
 
     <div class="btns-row">
         <button class="btn-calc" onclick="calcular()">DIMENSIONAR</button>
-        <a href="https://wa.me/5593992241962?text=Olá! Acabei de calcular meu sistema e gostaria de um orçamento detalhado." class="whatsapp-btn">
-            <i class="fab fa-whatsapp"></i>&nbsp;DESCONTO
-        </a>
+        <a href="https://wa.me/5593992241962" class="whatsapp-btn"><i class="fab fa-whatsapp"></i>&nbsp;DESCONTO</a>
     </div>
 
     <div id="resultado" class="result">
-        <div class="grid-res">
-            <p><span><i class="fas fa-bolt" style="color:var(--ouro)"></i> Consumo:</span><span id="consumoKwh" class="val">0</span></p>
-            <p><span><i class="fas fa-microchip"></i> Inversor:</span><span id="inversor" class="val">-</span></p>
-            <p><span><i class="fas fa-solar-panel"></i> Painéis:</span><span id="placas" class="val">0</span></p>
-            <p><span><i class="fas fa-chart-line" style="color:var(--sucesso)"></i> Geração:</span><span id="geracaoReal" class="val">0</span></p>
+        <div class="box-perfil">
+            <h3 style="color: var(--ouro);"><i class="fas fa-user-check"></i> Seu Perfil de Consumo</h3>
+            <p style="margin: 0;">Seu Consumo Mensal:</p>
+            <div id="consumoKwh" class="val-destaque">0 kWh</div>
+            <p style="margin: 5px 0 0 0; font-size: 13px; color: #fff; font-weight: 600;">
+                <i class="fas fa-check-circle"></i> Sistema dimensionado de acordo com o valor sugerido.
+            </p>
+            <small style="color: #888;">*Cálculo baseado na sua fatura informada.</small>
+        </div>
+
+        <div class="box-sistema">
+            <h3 style="color: var(--sucesso);"><i class="fas fa-solar-panel"></i> Sistema Ideal Sugerido</h3>
+            <div class="item-tecnico">
+                <span><i class="fas fa-microchip"></i> Sugestão de Inversor:</span>
+                <span id="inversor" style="font-weight:bold;">0 kW</span>
+            </div>
+            <div class="item-tecnico">
+                <span><i class="fas fa-th"></i> Quantidade de Painéis:</span>
+                <span id="placas" style="font-weight:bold;">0 un</span>
+            </div>
+            <div class="item-tecnico">
+                <span><i class="fas fa-chart-line"></i> Geração Mensal Estimada:</span>
+                <span id="geracaoReal" style="color: var(--sucesso); font-weight:bold;">0 kWh</span>
+            </div>
         </div>
         
         <div class="investimento-box">
-            <div>
-                <span style="font-size: 12px; color: #aaa;">INVESTIMENTO ESTIMADO:</span>
-                <div id="precoKit" class="preco-final">R$ 0,00</div>
-            </div>
+            <span style="font-size: 13px; color: #aaa; text-transform: uppercase;">Investimento Estimado:</span>
+            <div id="precoKit" class="preco-final">R$ 0,00</div>
         </div>
-        <button class="btn-save" id="btnSave" onclick="window.print()">SALVAR EM PDF</button>
-        <span class="frase">"Economia inteligente é com a Nortbras!"</span>
+
+        <button class="btn-save" onclick="window.print()">SALVAR PROPOSTA EM PDF</button>
+        <p style="text-align:center; font-style:italic; color:var(--ouro); font-size:13px; margin-top:15px;">
+            "Economia inteligente é com a Nortbras!"
+        </p>
     </div>
 </div>
 
@@ -63,12 +85,12 @@
     function calcular() {
         const v = parseFloat(document.getElementById('valorConta').value);
         if (v > 0) {
+            // Fator de conversão Nortbras
             const kwh = v / 1.38;
             let p = Math.ceil((kwh / 30) / 1.92);
             if (v >= 1000 && p < 14) p = 14; 
 
             let valorPorPlaca = (v > 9000) ? 1180 : (v > 5600) ? 1150 : (p > 10) ? 1200 : 1350;
-
             const preco = p * valorPorPlaca;
             const inv = Math.round((p * 585) / 1000);
             const ger = ((p * 585 * 4.5 * 30) / 1000) * 0.82;
@@ -80,7 +102,6 @@
             document.getElementById('precoKit').innerText = preco.toLocaleString('pt-BR', {style:'currency', currency:'BRL'});
             
             document.getElementById('resultado').style.display = 'block';
-            document.getElementById('btnSave').style.display = 'block';
             window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
         }
     }
