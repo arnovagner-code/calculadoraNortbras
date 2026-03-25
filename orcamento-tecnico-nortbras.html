@@ -1,65 +1,86 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nortbras Energia Solar</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>NORTBRAS ENGENHARIA - ORÇAMENTO</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
-        body { background-color: #0f172a; }
-        .container-max { max-width: 800px; margin: 0 auto; }
-        .img-grid { height: 300px; object-fit: cover; width: 100%; }
-        @media (min-width: 768px) { .img-grid { height: 450px; } }
+        :root { --azul: #001a33; --ouro: #ff9900; --sucesso: #00c853; }
+        body { font-family: 'Segoe UI', sans-serif; background-color: #0a0e12; margin: 0; display: flex; justify-content: center; align-items: center; min-height: 100vh; color: #fff; padding: 10px; }
+        .container { background: var(--azul); padding: 25px; border-radius: 20px; width: 100%; max-width: 580px; text-align: center; border: 2px solid var(--ouro); box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+        .logo { max-width: 100px; margin-bottom: 10px; border-radius: 50%; border: 2px solid var(--ouro); }
+        h1 { font-size: 18px; color: var(--ouro); margin-bottom: 15px; text-transform: uppercase; }
+        input { width: 100%; padding: 15px; border-radius: 10px; border: 2px solid rgba(255,153,0,0.3); background: rgba(0,0,0,0.2); color: #fff; font-size: 24px; text-align: center; font-weight: bold; margin-bottom: 15px; outline: none; box-sizing: border-box; }
+        .btns-row { display: flex; gap: 10px; margin-bottom: 15px; }
+        .btn-calc { flex: 1; padding: 18px; background: var(--ouro); color: var(--azul); border: none; border-radius: 10px; font-weight: 800; font-size: 16px; cursor: pointer; text-transform: uppercase; }
+        .whatsapp-btn { flex: 1; background: var(--sucesso); color: white; text-decoration: none; display: flex; align-items: center; justify-content: center; padding: 18px; border-radius: 10px; font-weight: 800; font-size: 16px; text-transform: uppercase; }
+        .result { padding: 20px; background: rgba(0,0,0,0.4); border-radius: 15px; display: none; text-align: left; border-left: 6px solid var(--sucesso); }
+        .grid-res { display: grid; grid-template-columns: 1fr 1fr; gap: 10px 15px; margin-bottom: 15px; }
+        .grid-res p { margin: 0; font-size: 16px; display: flex; align-items: center; justify-content: space-between; height: 35px; }
+        .val { color: var(--sucesso); font-weight: bold; font-size: 18px; }
+        .investimento-box { text-align:center; border-top: 1px solid #444; padding-top: 15px; }
+        .preco-final { font-size: 32px; font-weight: 800; color: var(--ouro); }
+        .frase { font-style: italic; color: var(--ouro); font-size: 14px; font-weight: bold; margin-top: 12px; display: block; text-align: center; }
+        .btn-back { display: block; width: 100%; margin-top: 20px; color: #aaa; text-decoration: none; font-size: 12px; }
     </style>
 </head>
-<body class="text-white">
+<body>
 
-    <div class="container-max border-x border-gray-800 min-h-screen shadow-2xl bg-slate-900">
-        
-        <header class="p-10 text-center bg-black/40 border-b border-yellow-500/30">
-            <h1 class="text-5xl font-black italic tracking-tighter text-yellow-500 mb-2">NORTBRAS</h1>
-            <p class="text-gray-400 tracking-widest text-sm uppercase">Engenharia Solar de Alta Performance</p>
-        </header>
+<div class="container">
+    <img src="logo_nortbras.jng.html.jpg" alt="Logo" class="logo" onerror="this.style.display='none'">
+    <h1>ENGENHARIA NORTBRAS</h1>
 
-        <div class="px-6 py-10">
-            <a href="orcamento-tecnico-nortbras.html" class="block w-full bg-yellow-500 hover:bg-yellow-400 text-blue-900 text-center py-6 rounded-2xl font-black text-2xl shadow-[0_0_30px_rgba(234,179,8,0.4)] transition-all transform hover:scale-105">
-                <i class="fas fa-bolt mr-2"></i> GERAR ORÇAMENTO TÉCNICO
-            </a>
-        </div>
+    <input type="number" id="valorConta" placeholder="VALOR CONTA (R$)" autofocus>
 
-        <main class="px-6 pb-24 space-y-10">
-            <div class="flex items-center space-x-4">
-                <div class="h-1 w-12 bg-yellow-500"></div>
-                <h2 class="text-2xl font-bold uppercase tracking-tight">Projetos Entregues</h2>
-            </div>
-            
-            <div class="space-y-8">
-                <div class="group rounded-3xl overflow-hidden border border-gray-700 bg-gray-800 shadow-inner">
-                    <img src="aerea_paineis_curvados.jpg" class="img-grid grayscale-[20%] group-hover:grayscale-0 transition-all">
-                    <div class="p-5 border-t border-gray-700">
-                        <h3 class="font-bold text-lg text-yellow-500">Usinas Industriais</h3>
-                        <p class="text-gray-400 text-sm">Máxima eficiência em grandes coberturas.</p>
-                    </div>
-                </div>
-
-                <div class="group rounded-3xl overflow-hidden border border-gray-700 bg-gray-800">
-                    <img src="solplanet_obra.jpg" class="img-grid grayscale-[20%] group-hover:grayscale-0 transition-all">
-                    <div class="p-5 border-t border-gray-700">
-                        <h3 class="font-bold text-lg text-yellow-500">Sistemas de Alta Voltagem</h3>
-                        <p class="text-gray-400 text-sm">Tecnologia Solplanet com proteção Clamper.</p>
-                    </div>
-                </div>
-            </div>
-        </main>
-
-        <div class="fixed bottom-0 left-0 right-0 flex justify-center p-4 bg-black/60 backdrop-blur-lg border-t border-white/10">
-            <a href="https://wa.me/5594991054705" class="flex items-center justify-center w-full max-w-[700px] bg-green-600 hover:bg-green-500 py-4 rounded-2xl font-black text-xl shadow-lg transition-all">
-                <i class="fab fa-whatsapp mr-3 text-3xl"></i> FALAR COM O ENGENHEIRO
-            </a>
-        </div>
-
+    <div class="btns-row">
+        <button class="btn-calc" onclick="calcular()">DIMENSIONAR</button>
+        <a href="https://wa.me/5594991054705?text=Olá! Acabei de calcular meu sistema no portal e gostaria de um orçamento detalhado." class="whatsapp-btn">
+            <i class="fab fa-whatsapp"></i>&nbsp;CONTATO
+        </a>
     </div>
 
+    <div id="resultado" class="result">
+        <div class="grid-res">
+            <p><span><i class="fas fa-bolt"></i> Consumo:</span><span id="consumoKwh" class="val">0</span></p>
+            <p><span><i class="fas fa-microchip"></i> Inversor:</span><span id="inversor" class="val">-</span></p>
+            <p><span><i class="fas fa-solar-panel"></i> Painéis:</span><span id="placas" class="val">0</span></p>
+            <p><span><i class="fas fa-chart-line"></i> Geração:</span><span id="geracaoReal" class="val">0</span></p>
+        </div>
+        
+        <div class="investimento-box">
+            <span style="font-size: 12px; color: #aaa;">INVESTIMENTO ESTIMADO:</span>
+            <div id="precoKit" class="preco-final">R$ 0,00</div>
+        </div>
+        <span class="frase">"Economia inteligente é com a Nortbras!"</span>
+    </div>
+    <a href="index.html" class="btn-back">← Voltar para Galeria de Obras</a>
+</div>
+
+<script>
+    function calcular() {
+        const v = parseFloat(document.getElementById('valorConta').value);
+        if (v > 0) {
+            const kwh = v / 1.38;
+            let p = Math.ceil((kwh / 30) / 1.92);
+            if (v >= 1000 && p < 14) p = 14; 
+
+            let valorPorPlaca = (v > 9000) ? 1180 : (v > 5600) ? 1150 : (p > 10) ? 1200 : 1350;
+
+            const preco = p * valorPorPlaca;
+            const inv = Math.round((p * 585) / 1000);
+            const ger = ((p * 585 * 4.5 * 30) / 1000) * 0.82;
+
+            document.getElementById('consumoKwh').innerText = kwh.toFixed(0) + " kWh";
+            document.getElementById('placas').innerText = p + " un";
+            document.getElementById('inversor').innerText = inv + " kW";
+            document.getElementById('geracaoReal').innerText = ger.toFixed(0) + " kWh";
+            document.getElementById('precoKit').innerText = preco.toLocaleString('pt-BR', {style:'currency', currency:'BRL'});
+            
+            document.getElementById('resultado').style.display = 'block';
+            window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+        }
+    }
+</script>
 </body>
 </html>
