@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nortbras Energia Solar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { background-color: #0f172a; }
+        .container-max { max-width: 800px; margin: 0 auto; }
+        .img-grid { height: 300px; object-fit: cover; width: 100%; }
+        @media (min-width: 768px) { .img-grid { height: 450px; } }
+    </style>
+</head>
+<body class="text-white">
+
+    <div class="container-max border-x border-gray-800 min-h-screen shadow-2xl bg-slate-900">
+        
+        <header class="p-10 text-center bg-black/40 border-b border-yellow-500/30">
+            <h1 class="text-5xl font-black italic tracking-tighter text-yellow-500 mb-2">NORTBRAS</h1>
+            <p class="text-gray-400 tracking-widest text-sm uppercase">Engenharia Solar de Alta Performance</p>
+        </header>
+
+        <div class="px-6 py-10">
+            <a href="orcamento-tecnico-nortbras.html" class="block w-full bg-yellow-500 hover:bg-yellow-400 text-blue-900 text-center py-6 rounded-2xl font-black text-2xl shadow-[0_0_30px_rgba(234,179,8,0.4)] transition-all transform hover:scale-105">
+                <i class="fas fa-bolt mr-2"></i> GERAR ORÇAMENTO TÉCNICO
+            </a>
+        </div>
+
+        <main class="px-6 pb-24 space-y-10">
+            <div class="flex items-center space-x-4">
+                <div class="h-1 w-12 bg-yellow-500"></div>
+                <h2 class="text-2xl font-bold uppercase tracking-tight">Projetos Entregues</h2>
+            </div>
+            
+            <div class="space-y-8">
+                <div class="group rounded-3xl overflow-hidden border border-gray-700 bg-gray-800 shadow-inner">
+                    <img src="aerea_paineis_curvados.jpg" class="img-grid grayscale-[20%] group-hover:grayscale-0 transition-all">
+                    <div class="p-5 border-t border-gray-700">
+                        <h3 class="font-bold text-lg text-yellow-500">Usinas Industriais</h3>
+                        <p class="text-gray-400 text-sm">Máxima eficiência em grandes coberturas.</p>
+                    </div>
+                </div>
+
+                <div class="group rounded-3xl overflow-hidden border border-gray-700 bg-gray-800">
+                    <img src="solplanet_obra.jpg" class="img-grid grayscale-[20%] group-hover:grayscale-0 transition-all">
+                    <div class="p-5 border-t border-gray-700">
+                        <h3 class="font-bold text-lg text-yellow-500">Sistemas de Alta Voltagem</h3>
+                        <p class="text-gray-400 text-sm">Tecnologia Solplanet com proteção Clamper.</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <div class="fixed bottom-0 left-0 right-0 flex justify-center p-4 bg-black/60 backdrop-blur-lg border-t border-white/10">
+            <a href="https://wa.me/5594991054705" class="flex items-center justify-center w-full max-w-[700px] bg-green-600 hover:bg-green-500 py-4 rounded-2xl font-black text-xl shadow-lg transition-all">
+                <i class="fab fa-whatsapp mr-3 text-3xl"></i> FALAR COM O ENGENHEIRO
+            </a>
+        </div>
+
+    </div>
+
+</body>
+</html>
