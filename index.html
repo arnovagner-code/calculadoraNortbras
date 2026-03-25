@@ -3,43 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nortbras Energia Solar</title>
+    <title>NORTBRAS - Engenharia Solar</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { background-color: #020617; }
+        .app-container { max-width: 500px; margin: 0 auto; min-height: 100vh; background-color: #0f172a; padding-bottom: 100px; }
+        .glass { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+    </style>
 </head>
-<body class="bg-slate-900 font-sans text-white">
+<body class="text-white">
 
-    <header class="p-8 text-center bg-black/50">
-        <h1 class="text-4xl font-black italic tracking-tighter text-yellow-500">NORTBRAS</h1>
-        <p class="text-gray-400 tracking-widest text-xs uppercase">Engenharia Solar de Alta Performance</p>
-    </header>
+    <div class="app-container shadow-2xl">
+        <header class="p-6 text-center border-b border-gray-800">
+            <h1 class="text-3xl font-black text-yellow-500 italic">NORTBRAS</h1>
+            <p class="text-[10px] tracking-widest text-gray-400 uppercase">Engenharia de Alta Performance</p>
+        </header>
 
-    <div class="px-6 py-8">
-        <a href="orcamento-tecnico-nortbras.html" class="block w-full bg-yellow-500 hover:bg-yellow-400 text-blue-900 text-center py-6 rounded-2xl font-black text-xl shadow-[0_0_20px_rgba(234,179,8,0.5)] transition-all">
-            <i class="fas fa-bolt mr-2"></i> GERAR ORÇAMENTO TÉCNICO
-        </a>
-    </div>
-
-    <main class="px-6 pb-20 space-y-8">
-        <h2 class="text-2xl font-bold border-l-4 border-yellow-500 pl-3">PROJETOS ENTREGUES</h2>
-        
-        <div class="space-y-6">
-            <div class="rounded-3xl overflow-hidden border border-gray-700 shadow-2xl">
-                <img src="aerea_paineis_curvados.jpg" class="w-full h-64 object-cover">
-                <div class="p-4 bg-gray-800"><p class="font-bold">Usinas Industriais e Comerciais</p></div>
-            </div>
-
-            <div class="rounded-3xl overflow-hidden border border-gray-700 shadow-2xl">
-                <img src="solplanet_obra.jpg" class="w-full h-64 object-cover">
-                <div class="p-4 bg-gray-800"><p class="font-bold">Sistemas Solplanet Alta Voltagem</p></div>
+        <div class="p-4 pt-6">
+            <div class="glass p-6 rounded-3xl border-2 border-yellow-500/30 text-center">
+                <i class="fas fa-calculator text-yellow-500 text-4xl mb-3"></i>
+                <h2 class="text-xl font-bold mb-2">Simulador de Economia</h2>
+                <p class="text-gray-400 text-sm mb-6">Descubra agora o tamanho do sistema ideal para sua conta.</p>
+                
+                <a href="orcamento-técnico-nortbras.html" class="flex items-center justify-center w-full bg-yellow-500 hover:bg-yellow-400 text-blue-950 font-black py-5 rounded-2xl text-lg shadow-lg transition-all active:scale-95">
+                    ABRIR CALCULADORA <i class="fas fa-arrow-right ml-2"></i>
+                </a>
             </div>
         </div>
-    </main>
 
-    <div class="fixed bottom-0 left-0 right-0 p-4 bg-black/80 backdrop-blur-md border-t border-gray-800">
-        <a href="https://wa.me/5594991054705" class="flex items-center justify-center w-full bg-green-600 py-4 rounded-xl font-bold text-lg">
-            <i class="fab fa-whatsapp mr-2 text-2xl"></i> FALAR COM O ENGENHEIRO
-        </a>
+        <div class="p-4 space-y-6">
+            <div class="flex items-center justify-between border-l-4 border-yellow-500 pl-3">
+                <h2 class="text-lg font-bold uppercase tracking-tight">Nossas Instalações</h2>
+                <span class="text-[10px] bg-yellow-500/10 text-yellow-500 px-2 py-1 rounded">PORTFÓLIO</span>
+            </div>
+
+            <div class="grid grid-cols-1 gap-6">
+                
+                <div class="group">
+                    <div class="rounded-2xl overflow-hidden border border-gray-800 shadow-lg">
+                        <img src="area_paineis_curvados.jpg" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <p class="mt-2 text-xs text-gray-400 font-medium"><i class="fas fa-map-marker-alt text-yellow-500 mr-1"></i> Usina de Grande Porte - Telhado Curvado</p>
+                </div>
+
+                <div class="group">
+                    <div class="rounded-2xl overflow-hidden border border-gray-800 shadow-lg">
+                        <img src="solplanet_obra.jpg" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <p class="mt-2 text-xs text-gray-400 font-medium"><i class="fas fa-check-circle text-yellow-500 mr-1"></i> Inversores Solplanet - Instalação Industrial</p>
+                </div>
+
+                <div class="group">
+                    <div class="rounded-2xl overflow-hidden border border-gray-800 shadow-lg">
+                        <img src="sistema_offgrid_felicity_solar.jpg" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <p class="mt-2 text-xs text-gray-400 font-medium"><i class="fas fa-battery-full text-yellow-500 mr-1"></i> Sistema Off-Grid Felicity Solar (Independência Total)</p>
+                </div>
+
+                <div class="group">
+                    <div class="rounded-2xl overflow-hidden border border-gray-800 shadow-lg">
+                        <img src="solares_telhado_zinco.jpg" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <p class="mt-2 text-xs text-gray-400 font-medium"><i class="fas fa-solar-panel text-yellow-500 mr-1"></i> Instalação em Telhado Metálico (Zinco)</p>
+                </div>
+
+                <div class="group">
+                    <div class="rounded-2xl overflow-hidden border border-gray-800 shadow-lg">
+                        <img src="solares_telhado_ceramico.jpg" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <p class="mt-2 text-xs text-gray-400 font-medium"><i class="fas fa-home text-yellow-500 mr-1"></i> Padrão Residencial - Telha Cerâmica</p>
+                </div>
+
+                <div class="group">
+                    <div class="rounded-2xl overflow-hidden border border-gray-800 shadow-lg">
+                        <img src="huawei_instalacao.jpg" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <p class="mt-2 text-xs text-gray-400 font-medium"><i class="fas fa-microchip text-yellow-500 mr-1"></i> Tecnologia Huawei - Alta Eficiência</p>
+                </div>
+
+            </div>
+        </div>
+
+        <footer class="fixed bottom-0 w-full max-w-[500px] p-4 bg-slate-900/90 backdrop-blur-md border-t border-gray-800">
+            <a href="https://wa.me/5594991054705" class="flex items-center justify-center w-full bg-green-600 hover:bg-green-500 py-4 rounded-2xl font-bold shadow-lg transition-all active:scale-95">
+                <i class="fab fa-whatsapp mr-2 text-xl"></i> FALAR COM O ENGENHEIRO
+            </a>
+        </footer>
     </div>
 
 </body>
